@@ -10,7 +10,7 @@ class CoffeeMachineConsole(
         displayMachineContents()
         when(interaction.askForString("Write action (buy, fill, take):")) {
             "buy" -> this.buy()
-            "fill" -> this.fill()
+            "fill" -> FillMachineCommand(machine, interaction).execute()
             "take" -> this.take()
         }
         displayMachineContents()
@@ -31,15 +31,15 @@ class CoffeeMachineConsole(
         }
     }
 
-    private fun fill(): Unit {
-        val water = interaction.askForInt(makeFillString("ml of water"))
-        val milk = interaction.askForInt(makeFillString("ml of milk"))
-        val beans = interaction.askForInt(makeFillString("grams of coffee beans"))
-        val cups = interaction.askForInt(makeFillString("disposable cups"))
-
-        this.machine.fill(water, milk, beans, cups)
-    }
-
-    private fun makeFillString(fillWith: String): String =
-        "Write how many $fillWith you want to add:"
+//    private fun fill(): Unit {
+//        val water = interaction.askForInt(makeFillString("ml of water"))
+//        val milk = interaction.askForInt(makeFillString("ml of milk"))
+//        val beans = interaction.askForInt(makeFillString("grams of coffee beans"))
+//        val cups = interaction.askForInt(makeFillString("disposable cups"))
+//
+//        this.machine.fill(water, milk, beans, cups)
+//    }
+//
+//    private fun makeFillString(fillWith: String): String =
+//        "Write how many $fillWith you want to add:"
 }
