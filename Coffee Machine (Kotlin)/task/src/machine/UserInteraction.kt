@@ -10,6 +10,11 @@ open class UserInteraction(private val sc: Scanner, private val out: PrintStream
         return sc.nextInt()
     }
 
+    fun askForString(prompt: String): String {
+        out.println(prompt)
+        return sc.nextLine()
+    }
+
     fun write(message: Any): Unit {
         out.println(message)
     }
