@@ -1,11 +1,10 @@
 package machine
 
-import kotlin.math.min
-
 class CoffeeMachine(
     private var water: Int = 0,
     private var milk: Int = 0,
     private var beans: Int = 0,
+    private var cups: Int = 0,
     private var money: Money,
     ) {
 
@@ -17,8 +16,11 @@ class CoffeeMachine(
 
     val numberOfCups: Int
         get() =
-            min(this.beans / CUPS_PER_BEANS,
-                min(this.water / CUPS_PER_WATER, this.milk / CUPS_PER_MILK)
+            minOf(
+                this.beans / CUPS_PER_BEANS,
+                this.water / CUPS_PER_WATER,
+                this.milk / CUPS_PER_MILK,
+                this.cups
             )
 
     fun fillWater(amount: Int): CoffeeMachine {
