@@ -6,9 +6,9 @@ internal abstract class Coffee(
     val water: Int,
     val beans: Int,
     val milk: Int,
-    val _cost: Int,
-    val _name: String,
-): VendItem(_name, _cost) {
+    cost: Int,
+    name: String,
+): VendItem(name, cost) {
     companion object {
         const val ESPRESSO = "espresso"
         const val LATTE = "latte"

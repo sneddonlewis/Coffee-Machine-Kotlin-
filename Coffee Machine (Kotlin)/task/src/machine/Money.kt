@@ -19,4 +19,4 @@ abstract class Money(private var amount: Int, private val currencySymbol: Char) 
         get() = this.amount
 }
 
-class DollarMoney(private val _amount: Int = 0) : Money(_amount, '$')
+class DollarMoney(amount: Int = 0) : Money(amount, '$')
