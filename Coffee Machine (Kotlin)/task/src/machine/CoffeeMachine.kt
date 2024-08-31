@@ -8,21 +8,6 @@ class CoffeeMachine(
     private var money: Money = DollarMoney(0),
     ) {
 
-    companion object {
-        const val CUPS_PER_WATER: Int = 200
-        const val CUPS_PER_MILK: Int = 50
-        const val CUPS_PER_BEANS: Int = 15
-    }
-
-    val numberOfCups: Int
-        get() =
-            minOf(
-                this.beans / CUPS_PER_BEANS,
-                this.water / CUPS_PER_WATER,
-                this.milk / CUPS_PER_MILK,
-                this.cups
-            )
-
     fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
     fun buy(toBuy: CoffeeType, buyWith: Money): Coffee {
@@ -45,11 +30,11 @@ class CoffeeMachine(
             ${this.money} of money
         """.trimIndent()
 
-    fun fill(waterFill: Int, milkFill: Int, beansFill: Int, cupsFill: Int): CoffeeMachine =
-        this.fillWater(waterFill)
-            .fillMilk(milkFill)
-            .fillBeans(beansFill)
-            .fillCups(cupsFill)
+    fun fill(stock: MachineStock): CoffeeMachine =
+        this.fillWater(stock.getStockItem("water"))
+            .fillMilk(stock.getStockItem("milk"))
+            .fillBeans(stock.getStockItem("beans"))
+            .fillCups(stock.getStockItem("cups"))
 
     private fun fillWater(amount: Int): CoffeeMachine {
         this.water += amount

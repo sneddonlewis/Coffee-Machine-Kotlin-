@@ -13,12 +13,6 @@ files:
   - name: src/machine/CoffeeMachine.kt
     visible: true
     learner_created: true
-  - name: src/machine/CoffeeRequirements.kt
-    visible: true
-    learner_created: true
-  - name: src/machine/CoffeeStage.kt
-    visible: true
-    learner_created: true
   - name: src/machine/Money.kt
     visible: true
     learner_created: true
@@ -43,9 +37,15 @@ files:
   - name: src/machine/commands/Invalid.kt
     visible: true
     learner_created: true
+  - name: src/machine/MachineStock.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeMachineStock.kt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: "Sat, 31 Aug 2024 13:46:34 UTC"
+  time: "Sat, 31 Aug 2024 14:05:00 UTC"
 record: -1
