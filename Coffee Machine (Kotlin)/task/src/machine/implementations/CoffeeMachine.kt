@@ -1,6 +1,10 @@
-package machine
+package machine.implementations
 
-import machine.contracts.MachineStock
+import machine.DollarMoney
+import machine.Money
+import machine.StockFillRequest
+import machine.StockItem
+import machine.contracts.VendItem
 import machine.contracts.VendingMachine
 
 class CoffeeMachine(
@@ -13,7 +17,7 @@ class CoffeeMachine(
 
     override fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
-    override fun buy(toBuy: String, buyWith: Money): Coffee {
+    override fun buy(toBuy: String, buyWith: Money): VendItem {
         val coffee = coffeeFactory(toBuy)
         buyWith.moveOut(this.money, coffee.cost)
         this.water -= coffee.water
@@ -26,6 +30,14 @@ class CoffeeMachine(
     override fun getItemsForSale(): List<String> =
         listOf(Coffee.ESPRESSO, Coffee.LATTE, Coffee.CAPPUCCINO)
 
+    override fun getStockItems(): List<StockItem> =
+        listOf(
+            StockItem(makeFillPrompt("ml of water"), "water"),
+            StockItem(makeFillPrompt("ml of milk"), "milk"),
+            StockItem(makeFillPrompt("g of coffee beans"), "beans"),
+            StockItem(makeFillPrompt("disposable cups"), "cups"),
+        )
+
     override fun toString(): String =
         """
             The coffee machine has:
@@ -36,11 +48,15 @@ class CoffeeMachine(
             ${this.money} of money
         """.trimIndent()
 
-    override fun fill(stock: MachineStock): CoffeeMachine =
-        this.fillWater(stock.getStockItem("water"))
-            .fillMilk(stock.getStockItem("milk"))
-            .fillBeans(stock.getStockItem("beans"))
-            .fillCups(stock.getStockItem("cups"))
+    override fun fill(stock: StockFillRequest) {
+        this.fillWater(stock.getItem("water"))
+            .fillMilk(stock.getItem("milk"))
+            .fillBeans(stock.getItem("beans"))
+            .fillCups(stock.getItem("cups"))
+    }
+
+    private fun makeFillPrompt(fillWith: String): String =
+        "Write how many $fillWith you want to add:"
 
     private fun fillWater(amount: Int): CoffeeMachine {
         this.water += amount

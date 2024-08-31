@@ -10,19 +10,19 @@ files:
   - name: src/machine/UserInteraction.kt
     visible: true
     learner_created: true
-  - name: src/machine/CoffeeMachine.kt
+  - name: src/machine/implementations/CoffeeMachine.kt
     visible: true
     learner_created: true
   - name: src/machine/Money.kt
     visible: true
     learner_created: true
-  - name: src/machine/Coffee.kt
+  - name: src/machine/implementations/Coffee.kt
     visible: true
     learner_created: true
   - name: src/machine/MachineConsole.kt
     visible: true
     learner_created: true
-  - name: src/machine/contracts/MachineCommand.kt
+  - name: src/machine/commands/MachineCommand.kt
     visible: true
     learner_created: true
   - name: src/machine/commands/Fill.kt
@@ -37,18 +37,18 @@ files:
   - name: src/machine/commands/Invalid.kt
     visible: true
     learner_created: true
-  - name: src/machine/contracts/MachineStock.kt
-    visible: true
-    learner_created: true
-  - name: src/machine/CoffeeMachineStock.kt
-    visible: true
-    learner_created: true
   - name: src/machine/contracts/VendingMachine.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/StockItem.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/contracts/VendItem.kt
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: "Sat, 31 Aug 2024 14:57:48 UTC"
+  time: "Sat, 31 Aug 2024 15:30:19 UTC"
 record: -1

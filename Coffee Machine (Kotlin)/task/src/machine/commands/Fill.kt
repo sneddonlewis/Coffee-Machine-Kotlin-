@@ -1,8 +1,8 @@
 package machine.commands
 
-import machine.CoffeeMachineStock
+import machine.StockFillRequest
+import machine.StockFillItem
 import machine.UserInteraction
-import machine.contracts.MachineCommand
 import machine.contracts.VendingMachine
 
 class Fill(
@@ -10,14 +10,10 @@ class Fill(
     private val interaction: UserInteraction,
     ): MachineCommand {
     override fun execute() {
-        val water = interaction.askForInt(makeFillString("ml of water"))
-        val milk = interaction.askForInt(makeFillString("ml of milk"))
-        val beans = interaction.askForInt(makeFillString("grams of coffee beans"))
-        val cups = interaction.askForInt(makeFillString("disposable cups"))
+        val stockItems = machine.getStockItems()
+            .map { StockFillItem(it.key, interaction.askForInt(it.prompt)) }
 
-        this.machine.fill(CoffeeMachineStock(water, milk, beans, cups))
+        this.machine.fill(StockFillRequest(stockItems))
     }
 
-    private fun makeFillString(fillWith: String): String =
-        "Write how many $fillWith you want to add:"
 }

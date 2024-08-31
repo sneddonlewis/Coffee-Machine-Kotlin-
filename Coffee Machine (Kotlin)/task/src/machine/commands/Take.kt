@@ -2,7 +2,6 @@ package machine.commands
 
 import machine.Money
 import machine.UserInteraction
-import machine.contracts.MachineCommand
 import machine.contracts.VendingMachine
 
 class Take(
