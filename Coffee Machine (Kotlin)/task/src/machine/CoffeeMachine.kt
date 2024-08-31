@@ -23,6 +23,9 @@ class CoffeeMachine(
         return coffee
     }
 
+    override fun getItemsForSale(): List<String> =
+        listOf(Coffee.ESPRESSO, Coffee.LATTE, Coffee.CAPPUCCINO)
+
     override fun toString(): String =
         """
             The coffee machine has:

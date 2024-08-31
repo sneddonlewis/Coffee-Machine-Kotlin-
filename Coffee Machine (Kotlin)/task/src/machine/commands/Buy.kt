@@ -1,6 +1,7 @@
 package machine.commands
 
-import machine.*
+import machine.Money
+import machine.UserInteraction
 import machine.contracts.MachineCommand
 import machine.contracts.VendingMachine
 
@@ -10,10 +11,10 @@ class Buy(
     private val purse: Money,
     ): MachineCommand {
     override fun execute() {
-        when (interaction.askForInt("What do you want to buy: 1 - espresso, 2 - latte, 3 - cappuccino:")) {
-            1 -> this.machine.buy(Coffee.ESPRESSO, purse)
-            2 -> this.machine.buy(Coffee.LATTE, purse)
-            3 -> this.machine.buy(Coffee.CAPPUCCINO, purse)
-        }
+        val itemsOnSale = machine.getItemsForSale()
+        val optionsStr = itemsOnSale.mapIndexed { i, s -> "${i+1} - $s" }.joinToString(", ")
+        val choice = interaction.askForInt("What do you want to buy: $optionsStr")
+        // todo - if choice is <=0 or > items length then you're borking
+        this.machine.buy(itemsOnSale[choice - 1], purse)
     }
 }
