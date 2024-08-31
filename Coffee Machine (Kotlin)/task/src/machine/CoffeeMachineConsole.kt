@@ -25,9 +25,9 @@ class CoffeeMachineConsole(
 
     private fun buy(): Unit {
         when (interaction.askForInt("What do you want to buy: 1 - espresso, 2 - latte, 3 - cappuccino:")) {
-            1 -> this.machine.buy(Espresso(), purse)
-            2 -> this.machine.buy(Latte(), purse)
-            3 -> this.machine.buy(Cappuccino(), purse)
+            1 -> this.machine.buy(CoffeeType.ESPRESSO, purse)
+            2 -> this.machine.buy(CoffeeType.LATTE, purse)
+            3 -> this.machine.buy(CoffeeType.CAPPUCCINO, purse)
         }
     }
 

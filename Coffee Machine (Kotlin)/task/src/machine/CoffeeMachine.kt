@@ -25,7 +25,8 @@ class CoffeeMachine(
 
     fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
-    fun buy(coffee: Coffee, buyWith: Money): Coffee {
+    fun buy(toBuy: CoffeeType, buyWith: Money): Coffee {
+        val coffee = coffeeFactory(toBuy)
         buyWith.moveOut(this.money, coffee.cost)
         this.water -= coffee.water
         this.milk -= coffee.milk
