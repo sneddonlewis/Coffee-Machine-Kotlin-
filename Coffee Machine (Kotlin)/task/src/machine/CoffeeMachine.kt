@@ -25,7 +25,14 @@ class CoffeeMachine(
 
     fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
-    fun buy(coffee: Coffee, buyWith: Money): Unit = buyWith.moveOut(this.money, coffee.cost)
+    fun buy(coffee: Coffee, buyWith: Money): Coffee {
+        buyWith.moveOut(this.money, coffee.cost)
+        this.water -= coffee.water
+        this.milk -= coffee.milk
+        this.beans -= coffee.beans
+        this.cups -= 1
+        return coffee
+    }
 
     override fun toString(): String =
         """
