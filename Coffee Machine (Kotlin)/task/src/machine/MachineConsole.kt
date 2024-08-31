@@ -1,9 +1,10 @@
 package machine
 
 import machine.commands.*
+import machine.contracts.VendingMachine
 
-class CoffeeMachineConsole(
-    private val machine: CoffeeMachine,
+class MachineConsole(
+    private val machine: VendingMachine,
     private val interaction: UserInteraction,
     private val purse: Money,
     ) {

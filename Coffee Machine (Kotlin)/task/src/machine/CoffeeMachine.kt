@@ -1,16 +1,19 @@
 package machine
 
+import machine.contracts.MachineStock
+import machine.contracts.VendingMachine
+
 class CoffeeMachine(
     private var water: Int = 0,
     private var milk: Int = 0,
     private var beans: Int = 0,
     private var cups: Int = 0,
     private var money: Money = DollarMoney(0),
-    ) {
+    ): VendingMachine {
 
-    fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
+    override fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
-    fun buy(toBuy: CoffeeType, buyWith: Money): Coffee {
+    override fun buy(toBuy: String, buyWith: Money): Coffee {
         val coffee = coffeeFactory(toBuy)
         buyWith.moveOut(this.money, coffee.cost)
         this.water -= coffee.water
@@ -30,7 +33,7 @@ class CoffeeMachine(
             ${this.money} of money
         """.trimIndent()
 
-    fun fill(stock: MachineStock): CoffeeMachine =
+    override fun fill(stock: MachineStock): CoffeeMachine =
         this.fillWater(stock.getStockItem("water"))
             .fillMilk(stock.getStockItem("milk"))
             .fillBeans(stock.getStockItem("beans"))

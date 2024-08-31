@@ -1,10 +1,14 @@
 package machine.commands
 
-import machine.CoffeeMachine
 import machine.CoffeeMachineStock
 import machine.UserInteraction
+import machine.contracts.MachineCommand
+import machine.contracts.VendingMachine
 
-class Fill(private val machine: CoffeeMachine, private val interaction: UserInteraction): MachineCommand {
+class Fill(
+    private val machine: VendingMachine,
+    private val interaction: UserInteraction,
+    ): MachineCommand {
     override fun execute() {
         val water = interaction.askForInt(makeFillString("ml of water"))
         val milk = interaction.askForInt(makeFillString("ml of milk"))

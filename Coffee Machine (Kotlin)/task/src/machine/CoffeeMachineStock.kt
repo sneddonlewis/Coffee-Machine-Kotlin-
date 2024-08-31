@@ -1,5 +1,7 @@
 package machine
 
+import machine.contracts.MachineStock
+
 class CoffeeMachineStock(private val water: Int, private val milk: Int, private val beans: Int, private val cups: Int): MachineStock() {
     override fun getStockItem(name: String): Int =
         when (name) {

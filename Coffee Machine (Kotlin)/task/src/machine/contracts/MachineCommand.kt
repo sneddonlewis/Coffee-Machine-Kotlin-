@@ -1,4 +1,4 @@
-package machine.commands
+package machine.contracts
 
 interface MachineCommand {
     fun execute()

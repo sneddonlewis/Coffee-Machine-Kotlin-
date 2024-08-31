@@ -6,21 +6,21 @@ abstract class Coffee(
     val milk: Int,
     val cost: Int,
 ) {
+    companion object {
+        const val ESPRESSO = "espresso"
+        const val LATTE = "latte"
+        const val CAPPUCCINO = "cappuccino"
+    }
 }
 
 class Espresso() : Coffee(250, 16, 0, 4)
 class Latte() : Coffee(350, 20, 75, 7)
 class Cappuccino() : Coffee(200, 12, 100, 6)
 
-enum class CoffeeType {
-    ESPRESSO,
-    LATTE,
-    CAPPUCCINO,
-}
-
-fun coffeeFactory(coffee: CoffeeType): Coffee =
+fun coffeeFactory(coffee: String): Coffee =
     when (coffee) {
-        CoffeeType.ESPRESSO -> Espresso()
-        CoffeeType.LATTE -> Latte()
-        CoffeeType.CAPPUCCINO -> Cappuccino()
+        Coffee.ESPRESSO -> Espresso()
+        Coffee.LATTE -> Latte()
+        Coffee.CAPPUCCINO -> Cappuccino()
+        else -> throw IllegalArgumentException()
     }
