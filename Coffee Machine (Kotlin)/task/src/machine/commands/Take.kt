@@ -1,6 +1,10 @@
-package machine
+package machine.commands
 
-class TakeMachineCommand(
+import machine.CoffeeMachine
+import machine.Money
+import machine.UserInteraction
+
+class Take(
     private val machine: CoffeeMachine,
     private val interaction: UserInteraction,
     private val purse: Money,

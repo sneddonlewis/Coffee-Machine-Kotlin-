@@ -1,5 +1,9 @@
 package machine
 
+import machine.commands.Buy
+import machine.commands.Fill
+import machine.commands.Take
+
 class CoffeeMachineConsole(
     private val machine: CoffeeMachine,
     private val interaction: UserInteraction,
@@ -9,9 +13,9 @@ class CoffeeMachineConsole(
     fun run(): Unit {
         displayMachineContents()
         when(interaction.askForString("Write action (buy, fill, take):")) {
-            "buy" -> this.buy()
-            "fill" -> FillMachineCommand(machine, interaction).execute()
-            "take" -> TakeMachineCommand(machine, interaction, purse).execute()
+            "buy" -> Buy(machine, interaction, purse).execute()
+            "fill" -> Fill(machine, interaction).execute()
+            "take" -> Take(machine, interaction, purse).execute()
         }
         displayMachineContents()
     }
@@ -23,13 +27,13 @@ class CoffeeMachineConsole(
 //        this.interaction.write("I gave you $$movedAmount")
 //    }
 
-    private fun buy(): Unit {
-        when (interaction.askForInt("What do you want to buy: 1 - espresso, 2 - latte, 3 - cappuccino:")) {
-            1 -> this.machine.buy(CoffeeType.ESPRESSO, purse)
-            2 -> this.machine.buy(CoffeeType.LATTE, purse)
-            3 -> this.machine.buy(CoffeeType.CAPPUCCINO, purse)
-        }
-    }
+//    private fun buy(): Unit {
+//        when (interaction.askForInt("What do you want to buy: 1 - espresso, 2 - latte, 3 - cappuccino:")) {
+//            1 -> this.machine.buy(CoffeeType.ESPRESSO, purse)
+//            2 -> this.machine.buy(CoffeeType.LATTE, purse)
+//            3 -> this.machine.buy(CoffeeType.CAPPUCCINO, purse)
+//        }
+//    }
 
 //    private fun fill(): Unit {
 //        val water = interaction.askForInt(makeFillString("ml of water"))

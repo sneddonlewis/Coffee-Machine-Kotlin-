@@ -1,4 +1,4 @@
-package machine
+package machine.commands
 
 interface MachineCommand {
     fun execute()
