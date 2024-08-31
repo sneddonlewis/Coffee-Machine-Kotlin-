@@ -32,9 +32,9 @@ feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
 status: Failed
 feedback:
   message: |-
-    Wrong answer in test #1
+    Wrong answer in test #2
 
-    Initial setup is wrong: coffee machine should fe filled like stated in the description
+    After buying the first option water amount should be lowered by 250
 
     Please find below the output of your program during this failed test.
     Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
@@ -46,15 +46,16 @@ feedback:
     540 ml of milk
     120 g of coffee beans
     9 disposable cups
-    $0 of money
+    $550 of money
     Write action (buy, fill, take):
-    &gt; take
-    I gave you $0
+    &gt; buy
+    What do you want to buy: 1 - espresso, 2 - latte, 3 - cappuccino:
+    &gt; 1
     The coffee machine has:
     400 ml of water
     540 ml of milk
     120 g of coffee beans
     9 disposable cups
-    $0 of money
-  time: "Sat, 31 Aug 2024 13:21:12 UTC"
+    $554 of money
+  time: "Sat, 31 Aug 2024 13:24:08 UTC"
 record: -1
