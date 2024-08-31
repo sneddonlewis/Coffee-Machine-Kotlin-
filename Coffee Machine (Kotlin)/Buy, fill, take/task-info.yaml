@@ -1,0 +1,27 @@
+type: edu
+custom_name: "Buy, fill, take!"
+files:
+  - name: src/machine/Main.kt
+    visible: true
+    learner_created: false
+  - name: test/CoffeeMachineTest.java
+    visible: false
+    learner_created: false
+  - name: src/machine/UserInteraction.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeMachine.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeRequirements.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeStage.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/Money.kt
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
+status: Unchecked
+record: -1

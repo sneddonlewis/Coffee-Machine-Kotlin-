@@ -1,0 +1,26 @@
+type: edu
+files:
+  - name: src/machine/Main.kt
+    visible: true
+    learner_created: false
+  - name: test/CoffeeMachineTest.java
+    visible: false
+    learner_created: false
+  - name: src/machine/CoffeeRequirements.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeStage.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/CoffeeMachine.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/UserInteraction.kt
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/projects/67/stages/362/implement#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 31 Aug 2024 10:53:24 UTC"
+record: 3
