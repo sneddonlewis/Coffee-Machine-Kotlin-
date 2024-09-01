@@ -6,6 +6,51 @@ files:
   - name: test/CoffeeMachineTest.java
     visible: false
     learner_created: false
+  - name: src/machine/implementations/Coffee.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/StockItem.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/contracts/VendingMachine.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/contracts/VendItem.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Buy.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/MachineCommand.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/Money.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Fill.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/UserInteraction.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/MachineConsole.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Take.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Invalid.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/implementations/CoffeeMachine.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Exit.kt
+    visible: true
+    learner_created: true
+  - name: src/machine/commands/Remaining.kt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/364/implement#comment
 status: Unchecked
 record: -1
