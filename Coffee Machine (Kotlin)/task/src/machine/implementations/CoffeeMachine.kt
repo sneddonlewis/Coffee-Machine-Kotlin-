@@ -1,9 +1,6 @@
 package machine.implementations
 
-import machine.DollarMoney
-import machine.Money
-import machine.StockFillRequest
-import machine.StockItem
+import machine.*
 import machine.contracts.VendItem
 import machine.contracts.VendingMachine
 
@@ -17,14 +14,28 @@ class CoffeeMachine(
 
     override fun takeAllMoney(purse: Money): Int = this.money.moveOutAll(purse)
 
-    override fun buy(toBuy: String, buyWith: Money): VendItem {
+    override fun buy(toBuy: String, buyWith: Money): VendResult {
         val coffee = coffeeFactory(toBuy)
+
+        if (this.water < coffee.water) {
+            return VendResult("Sorry, not enough water!", coffee)
+        }
+        if (this.milk < coffee.milk) {
+            return VendResult("Sorry, not enough milk!", coffee)
+        }
+        if (this.beans < coffee.beans) {
+            return VendResult("Sorry, not enough beans!", coffee)
+        }
+        if (this.cups < 1) {
+            return VendResult("Sorry, not enough disposable cups!", coffee)
+        }
+
         buyWith.moveOut(this.money, coffee.cost)
         this.water -= coffee.water
         this.milk -= coffee.milk
         this.beans -= coffee.beans
         this.cups -= 1
-        return coffee
+        return VendResult("I have enough resources, making you a coffee!", coffee)
     }
 
     override fun getItemsForSale(): List<String> =

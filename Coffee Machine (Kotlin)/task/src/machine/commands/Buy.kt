@@ -12,8 +12,18 @@ class Buy(
     override fun execute() {
         val itemsOnSale = machine.getItemsForSale()
         val optionsStr = itemsOnSale.mapIndexed { i, s -> "${i+1} - $s" }.joinToString(", ")
-        val choice = interaction.askForInt("What do you want to buy: $optionsStr")
-        // todo - if choice is <=0 or > items length then you're borking
-        this.machine.buy(itemsOnSale[choice - 1], purse)
+        val choice = interaction.askForString("What do you want to buy: $optionsStr, back - to main menu:")
+        if (choice == "back") {
+            return
+        }
+        try {
+            val selection = choice.toInt()
+            // todo - if choice is <=0 or > items length then you're borking
+            val coffeeResult = this.machine.buy(itemsOnSale[selection - 1], purse)
+            interaction.write(coffeeResult.message)
+        }
+        catch (_: NumberFormatException) {
+            return
+        }
     }
 }

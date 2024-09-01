@@ -51,6 +51,12 @@ files:
   - name: src/machine/commands/Remaining.kt
     visible: true
     learner_created: true
+  - name: src/machine/VendResult.kt
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/364/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sun, 01 Sep 2024 09:08:19 UTC"
 record: -1
